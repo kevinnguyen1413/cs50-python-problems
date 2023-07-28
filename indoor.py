@@ -3,6 +3,6 @@ def main():
 
 def indoor_voice(speech):
     speech = input('')
-    return speech.lower()
+    return print(speech.lower())
 
 main()
