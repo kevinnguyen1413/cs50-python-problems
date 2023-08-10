@@ -1,6 +1,6 @@
 def main():
     camel_case = input('camelCase: ')
-    snake_case(camel_case)
+    print(snake_case(camel_case))
     
 def snake_case(camel_case):
     convert_case = ''
