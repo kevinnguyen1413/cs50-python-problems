@@ -35,8 +35,11 @@ def first_non_zero(s):
     return False
 
 def num_after_alpha(s):
-    if any(s[i].isnumeric() for i in range(2, len(s))) and s[:-1].isalpha():
+    if s[-1].isalpha() and any(s[i].isnumeric() for i in range(2, len(s))):
         return False
+    for i in range(2, len(s)):
+        if s[i].isnumeric() and s[i-1].isalpha() and s[i+1].isalpha():
+            return False
     return True
     
 main()
