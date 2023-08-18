@@ -10,6 +10,6 @@ def remove_vowels(sentence):
             del i
         else:
             no_vowels_sentence += i
-    return print('Output: ' + no_vowels_sentence)
+    return print(f'Output: {no_vowels_sentence}')
 
 main()
