@@ -16,4 +16,3 @@ def grocery_list():
             break
 
 main()
-                
