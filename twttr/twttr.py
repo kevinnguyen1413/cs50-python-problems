@@ -3,13 +3,8 @@ def main():
     remove_vowels(sentence)
     
 def remove_vowels(sentence):
-    no_vowels_sentence = ''
     vowels = ['a', 'e', 'i', 'o', 'u']
-    for i in sentence:
-        if i.lower() in vowels:
-            del i
-        else:
-            no_vowels_sentence += i
+    no_vowels_sentence = ''.join([char for char in sentence if char.lower() not in vowels])
     return print(f'Output: {no_vowels_sentence}')
 
 main()
