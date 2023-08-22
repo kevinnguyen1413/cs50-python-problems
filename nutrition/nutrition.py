@@ -7,7 +7,7 @@ def main():
     check_calories(fruit)
     
 def check_calories(s):
-    for k, v in fruits_cal.items():
+    for k in fruits_cal:
         if s == k.lower():
             print(f'Calories: {fruits_cal[s.title()]}')
         else:
