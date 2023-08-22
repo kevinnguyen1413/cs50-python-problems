@@ -16,11 +16,11 @@ def extensions(file):
         
     for k, v in extensions_dict.items():
         if file == 'txt' in v:
-            print(k, 'plain', sep='/')
+            print(f'{k}/plain')
         elif file == 'jpg' in v:
-            print(k, 'jpeg', sep='/')
+            print(f'{k}/jpeg')
         elif file in v:
-            print(k, file, sep='/')
+            print(f'{k}/{file}')
         else:
             None
 
