@@ -17,15 +17,12 @@ def item_cost():
     while True:
         try:
             choice = input('Item: ').lower()
+            if choice.title() not in menu:
+                continue
         except EOFError:
             break
         else:
-            for k in menu:
-                try:
-                    if choice == k.lower():
-                        total += menu[choice.title()]
-                        print(f'${total:.2f}')
-                except KeyError:
-                    continue
+            total += sum([menu[k] for k in menu if choice == k.lower()])
+            print(f'${total:.2f}')
 
 main()
