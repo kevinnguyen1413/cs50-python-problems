@@ -1,5 +1,10 @@
+import emoji as em
+
 def main():
-    emojize()
+    emote = input('Input: ')
+    emojizer(emote)
     
-def emojize():
-    print('Hello')
+def emojizer(s):
+    print(em.emojize(s))
+
+main()
