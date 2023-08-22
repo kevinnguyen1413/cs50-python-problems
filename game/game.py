@@ -3,16 +3,20 @@ import random
 import sys
 
 def main():
+    level_input()
     guess()
 
-while True:
-    try:
-        level = int(input('Level: '))
-        random_number = random.randint(1, level)
-    except ValueError:
-        continue
-    else:
-        break
+def level_input():
+    while True:
+        try:
+            global level
+            level = int(input('Level: '))
+            global random_number
+            random_number = random.randint(1, level)
+        except ValueError:
+            continue
+        else:
+            break
 
 def guess():
     while True:
