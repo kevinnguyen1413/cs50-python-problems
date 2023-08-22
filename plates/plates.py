@@ -8,7 +8,7 @@ def main():
         print("Invalid")
 
 def is_valid(s):
-    if (start_alpha(s) and plate_length(s) and num_after_alpha(s) and first_non_zero(s) and no_punctuations(s)) == True:
+    if (start_alpha(s) and plate_length(s) and num_after_alpha(s) and first_non_zero(s) and no_punctuations(s)) is True:
         return True
     return False
 
