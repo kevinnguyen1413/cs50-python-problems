@@ -20,7 +20,7 @@ def item_cost():
         except EOFError:
             break
         else:
-            for k, v in menu.items():
+            for k in menu:
                 try:
                     if choice == k.lower():
                         total += menu[choice.title()]
