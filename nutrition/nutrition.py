@@ -7,10 +7,8 @@ def main():
     check_calories(fruit)
     
 def check_calories(s):
-    for k in fruits_cal:
-        if s == k.lower():
-            print(f'Calories: {fruits_cal[s.title()]}')
-        else:
-            None
+    matching_fruits = [k for k in fruits_cal if s == k.lower()]
+    if matching_fruits:
+        print(f'Calories: {fruits_cal[matching_fruits[0]]}')
 
 main()
