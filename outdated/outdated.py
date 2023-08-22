@@ -31,9 +31,7 @@ def int_date_conversion():
             continue
         
         try:
-            year = int(mdy[2])
-            month = int(mdy[0])
-            date = int(mdy[1])
+            month, date, year = map(int, mdy)
             if month not in range(1, 13) or date not in range(1, 32):
                 continue
         except IndexError:
