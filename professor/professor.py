@@ -13,12 +13,11 @@ generate_integer returns a randomly generated non-negative integer with level di
 
 
 import random
-
+import sys
 
 def main():
     level = get_level()
-    x, y = generate_integer(level)
-    attempts(x, y)
+    generate_integer(level)
 
 
 
@@ -35,44 +34,44 @@ def get_level():
         
 
 def generate_integer(level):
-    if level == 1:
-        x, y = (random.randint(0, 9) for i in range(2))
-        return x, y
-    elif level == 2:
-        x, y = (random.randint(10, 99) for i in range(2))
-        return x, y
-    else:
-        x, y = (random.randint(100, 999) for i in range(2))
-        return x, y
-
-
-def attempts(x, y):
-    attempts_allowed = 3
     score = 0
-    while attempts_allowed > 0:
-        try:
-            answer = int(input(f'{x} + {y} = '))
-        except ValueError:
-            continue
-        except EOFError:
-            print('End Input')
-        if answer != x + y:
-            print('EEE')
-            attempts_allowed -= 1
-            continue
-        elif answer == x + y and attempts_allowed == 3:
-            score += 1
-            generate_integer(chosen_level)
+    number_of_problems = 10
+
+    while True and number_of_problems > 0:
+        if level == 1:
+            x, y = (random.randint(0, 9) for i in range(2))
+        elif level == 2:
+            x, y = (random.randint(10, 99) for i in range(2))
         else:
-            break
-    
-    """print(f'Score: {score}')"""
-        
-        
-    
+            x, y = (random.randint(100, 999) for i in range(2))
 
-    
-
+        attempts_allowed = 3
+        while attempts_allowed > 0:
+            try:
+                answer = int(input(f'{x} + {y} = '))
+            except ValueError:
+                continue
+            except EOFError:
+                print(x+y)
+                sys.exit()
+        
+            if answer == x + y and attempts_allowed == 3:
+                score += 1
+                number_of_problems -= 1
+                break
+            elif answer == x + y and attempts_allowed < 3:
+                number_of_problems -= 1
+                break
+            elif answer != x + y and attempts_allowed != 0:
+                print('EEE')
+                attempts_allowed -= 1
+                continue
+        if attempts_allowed == 0:
+            number_of_problems -= 1
+            print(f'{x} + {y} = {x+y}')
+        continue
+        
+    print(f'Score: {score}')
 
 if __name__ == "__main__":
     main()
