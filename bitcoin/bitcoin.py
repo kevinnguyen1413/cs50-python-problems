@@ -1,13 +1,14 @@
 import requests
 import sys
+import json
 
 if len (sys.argv) != 2:
-    print('Missing command-line argument')
-    sys.exit()
+    sys.exit('Missing command-line argument')
+
 try:
     btc_amount = float(sys.argv[1])
 except ValueError:
-    print('Command-line argument is not a number')
+    sys.exit('Command-line argument is not a number')
 
 
 def main():
@@ -15,7 +16,10 @@ def main():
 
 def bitcoin_price():
     try:
-        print('Hello')
+        chart = requests.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+        chart_json = chart.json()
+        converted_btc = chart_json["bpi"]["USD"]["rate_float"]*btc_amount
+        print(f'${converted_btc:,.4f}')     
     except requests.RequestException:
         print('hello')
         
