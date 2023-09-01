@@ -1,6 +1,5 @@
 import requests
 import sys
-import json
 
 if len (sys.argv) != 2:
     sys.exit('Missing command-line argument')
@@ -21,6 +20,6 @@ def bitcoin_price():
         converted_btc = chart_json["bpi"]["USD"]["rate_float"]*btc_amount
         print(f'${converted_btc:,.4f}')     
     except requests.RequestException:
-        print('hello')
+        print('Check code for error(s)')
         
 main()
